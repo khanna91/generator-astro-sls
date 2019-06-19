@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Generator to create serverless nodejs application",
   "main": "index.js",
-  "author": "Rahul Khanna",
+  "author": "Rahul Khanna (khanna.mailme@gmail.com)",
   "license": "MIT",
   "files": [
     "generators"
