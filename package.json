@@ -12,7 +12,10 @@
     "yeoman-generator"
   ],
   "dependencies": {
+    "lodash": "^4.17.11",
     "mkdirp": "^0.5.1",
+    "recast": "^0.18.1",
+    "rimraf": "^2.6.3",
     "underscore.string": "^3.3.5",
     "uppercamelcase": "^3.0.0",
     "url-join": "^4.0.0",
