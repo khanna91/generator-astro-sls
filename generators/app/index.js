@@ -1,8 +1,8 @@
 const Generator = require('yeoman-generator');
 const yosay = require('yosay');
 const urlJoin = require('url-join');
-// const path = require('path');
-// const mkdirp = require('mkdirp');
+const path = require('path');
+const mkdirp = require('mkdirp');
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -116,6 +116,33 @@ module.exports = class extends Generator {
      * index.js
      */
     copyTpl(tPath('src/index.ejs'), dPath(urlJoin(props.src, 'index.js')), props);
+
+    /**
+     * api folder
+     */
+    mkdirp.sync(path.join(this.destinationPath(), urlJoin(props.src, props.apibase)));
+    copy(tPath(`src/api/apiversion`), dPath(urlJoin(props.apiPath, props.apiversion)));
+
+    /**
+     * utils
+     */
+    copy(tPath('src/utils/APIError'), dPath(urlJoin(props.src, 'utils', 'APIError')));
+    copy(tPath('src/utils/helper'), dPath(urlJoin(props.src, 'utils', 'helper')));
+    copy(tPath('src/utils/logger'), dPath(urlJoin(props.src, 'utils', 'logger')));
+
+    /**
+     * middlewares
+     */
+    copy(tPath('src/middlewares/error'), dPath(urlJoin(props.src, 'middlewares', 'error')));
+    copy(tPath('src/middlewares/route-validator'), dPath(urlJoin(props.src, 'middlewares', 'route-validator')));
+
+
+    /**
+     * services
+     */
+    copy(tPath('src/services'), dPath(urlJoin(props.src, 'services')));
+
+    copyTpl(tPath('_package.json.ejs'), dPath('package.json'), props);
 
     this.config.save();
 
