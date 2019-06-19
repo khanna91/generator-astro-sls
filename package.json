@@ -1,0 +1,25 @@
+{
+  "name": "generator-serverless-node",
+  "version": "1.0.0",
+  "description": "Generator to create serverless nodejs application",
+  "main": "index.js",
+  "author": "Rahul Khanna",
+  "license": "MIT",
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "url-join": "^4.0.0",
+    "yeoman-generator": "^4.0.1",
+    "yosay": "^2.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-astro": "^1.0.8",
+    "eslint-plugin-import": "^2.17.3"
+  }
+}

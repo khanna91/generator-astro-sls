@@ -1,0 +1,41 @@
+service: <%= name %> # NOTE: update this with your service name
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+  settings:
+    dev:
+      STAGE: ${self:custom.stage}
+      NODE_ENV: 'development'
+    stg:
+      STAGE: ${self:custom.stage}
+      NODE_ENV: 'staging'
+    prod:
+      STAGE: ${self:custom.stage}
+      NODE_ENV: 'production'
+
+plugins:
+  - serverless-plugin-tracing
+  - serverless-offline
+
+provider:
+  name: aws
+  region: <%= awsregion %>
+  runtime: nodejs10.x
+  environment: ${self:custom.settings.${self:custom.stage}}
+
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "xray:PutTraceSegments"
+        - "xray:PutTelemetryRecords"
+      Resource:
+        - "*"
+
+functions:
+  hello:
+    handler: src.hello
+    tracing: true
+    events:
+      - http:
+          method: get
+          path: v1/hello
