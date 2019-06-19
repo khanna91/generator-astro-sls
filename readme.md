@@ -1,5 +1,5 @@
 
-# Astro Generator
+# Astro Serverless Generator
 
 Yeoman generator for building Serverless project on NodeJS.
 The principle of the project structure is isolation, so multiple developers can work on the same project without high dependency.
