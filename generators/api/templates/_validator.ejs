@@ -1,8 +1,8 @@
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 
 module.exports = {
   name: '<%= name %>',
-  path: '/<%= apibase %>/<%= apiversion %>/<%= name %>',
+  path: '/<%= apiversion %>/<%= name %>',
   type: '<%= method %>',
   joiSchema: {
     body: {},

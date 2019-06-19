@@ -1,7 +1,7 @@
 const middy = require('middy');
 const { routeValidator } = require('../../../middlewares/route-validator');
-const controller = require('./hello.controller');
-const validator = require('./hello.validator');
+const controller = require('./<%= name %>.controller');
+const validator = require('./<%= name %>.validator');
 
 /**
  * @api {<%= method %>} <%= apibase %>/<%= apiversion %>/<%= name %> <%= name %>
