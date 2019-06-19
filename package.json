@@ -1,5 +1,5 @@
 {
-  "name": "generator-serverless-node",
+  "name": "generator-astro-sls",
   "version": "1.0.0",
   "description": "Generator to create serverless nodejs application",
   "main": "index.js",
