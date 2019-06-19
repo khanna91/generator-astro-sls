@@ -1,0 +1,14 @@
+/* eslint-disable arrow-body-style */
+const { <%= name %>Middleware } = require('./<%= filename %>.middleware');
+
+describe('Middleware - <%= name %>Middleware', () => {
+  beforeEach(() => {});
+
+  afterEach(() => {});
+
+  it('should do nothing and move on to next', () => {
+    const mockFn = jest.fn();
+    <%= name %>Middleware({}).before({}, mockFn);
+    expect(mockFn.mock.calls.length).toBe(1);
+  });
+});

@@ -13,6 +13,8 @@
   ],
   "dependencies": {
     "mkdirp": "^0.5.1",
+    "underscore.string": "^3.3.5",
+    "uppercamelcase": "^3.0.0",
     "url-join": "^4.0.0",
     "yeoman-generator": "^4.0.1",
     "yosay": "^2.0.2"

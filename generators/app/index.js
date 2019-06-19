@@ -58,7 +58,7 @@ module.exports = class extends Generator {
         type: 'input',
         name: 'description',
         message: 'Description',
-        default: that.config.get('description') || 'This project generated using Astro Generator'
+        default: that.config.get('description') || 'This project generated using serverless node generator'
       },
       {
         type: 'input',
