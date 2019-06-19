@@ -8,8 +8,18 @@
   "files": [
     "generators"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khanna91/generator-astro-sls.git"
+  },
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "node",
+    "nodejs",
+    "aws",
+    "apigateway",
+    "lambda",
+    "serverless"
   ],
   "dependencies": {
     "lodash": "^4.17.11",
