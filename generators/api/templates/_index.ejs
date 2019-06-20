@@ -1,15 +1,32 @@
 const middy = require('middy');
+const {
+  httpEventNormalizer,
+  httpHeaderNormalizer,
+  jsonBodyParser,
+  urlEncodeBodyParser,
+  cors,
+  httpSecurityHeaders
+} = require('middy/middlewares');
+const { errorMiddleware } = require('../../../middlewares/error');
 const { routeValidator } = require('../../../middlewares/route-validator');
+
 const controller = require('./<%= name %>.controller');
 const validator = require('./<%= name %>.validator');
 
 /**
- * @api {<%= method %>} <%= apibase %>/<%= apiversion %>/<%= name %> <%= name %>
+ * @api {<%= method %>} <%= apiversion %>/<%= name %> <%= name %>
  * @apiDescription <%= apidesc %>
  * @apiVersion 1.0.0
  * @apiName <%= name %>
  * @apiPermission public
  */
-const handler = middy(controller.<%= name %>).use(routeValidator({ schema: validator.joiSchema }));
+const handler = middy(controller.<%= name %>).use(errorMiddleware.converter())
+  .use(cors())
+  .use(httpEventNormalizer())
+  .use(httpHeaderNormalizer())
+  .use(jsonBodyParser())
+  .use(urlEncodeBodyParser({ extended: false }))
+  .use(httpSecurityHeaders())
+  .use(routeValidator({ schema: validator.joiSchema }));
 
 module.exports = handler;
