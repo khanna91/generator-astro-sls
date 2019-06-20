@@ -28,25 +28,25 @@ Choose your project, either service or fullstack
 Generate a new API:
 
 ```
-yo astro:api
+yo astro-sls:api
 ```
 
 Generate a new middleware:
 
 ```
-yo astro:middleware
+yo astro-sls:middleware
 ```
 
 Generate a new service:
 
 ```
-yo astro:service
+yo astro-sls:service
 ```
 
 Generate a new utility:
 
 ```
-yo astro:util
+yo astro-sls:util
 ```
 
 ## Running Locally
