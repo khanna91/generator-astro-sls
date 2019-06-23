@@ -2,10 +2,11 @@
 
 const httpStatus = require('http-status');
 const toBeType = require('jest-tobetype');
+const Joi = require('@hapi/joi');
+const { logger } = require('../../utils/logger');
+const { APIError } = require('../../utils/APIError');
 
 expect.extend(toBeType);
-
-const Joi = require('@hapi/joi');
 
 const {
   convertGenericError,
@@ -19,8 +20,11 @@ describe('Middleware - error', () => {
       .required()
   });
   const { error } = Joi.validate({ a: 'a string' }, schema);
+  let errorSpy;
 
-  beforeEach(() => { });
+  beforeEach(() => {
+    errorSpy = jest.spyOn(logger, 'error');
+  });
 
   afterEach(() => {
     jest.resetAllMocks();
@@ -106,5 +110,28 @@ describe('Middleware - error', () => {
     const result = errorHandler(err);
 
     expect(result.statusCode).toBe(httpStatus.BAD_REQUEST);
+  });
+
+  it('should convert validation error and send json response', () => {
+    const mockFn = jest.fn();
+    converter().onError({ error }, mockFn);
+    expect(errorSpy).toHaveBeenCalledTimes(1);
+    expect(mockFn).toHaveBeenCalledTimes(1);
+  });
+
+  it('should convert node error and send json response', () => {
+    const err = new Error('Something went wrong');
+    const mockFn = jest.fn();
+    converter().onError({ error: err }, mockFn);
+    expect(errorSpy).toHaveBeenCalledTimes(1);
+    expect(mockFn).toHaveBeenCalledTimes(1);
+  });
+
+  it('should convert APIError and send json response', () => {
+    const err = APIError.unauthorized();
+    const mockFn = jest.fn();
+    converter().onError({ error: err }, mockFn);
+    expect(errorSpy).toHaveBeenCalledTimes(1);
+    expect(mockFn).toHaveBeenCalledTimes(1);
   });
 });
