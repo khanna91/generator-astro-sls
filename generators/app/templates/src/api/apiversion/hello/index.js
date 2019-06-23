@@ -7,9 +7,9 @@ const {
   cors,
   httpSecurityHeaders
 } = require('middy/middlewares');
-const { errorMiddleware } = require('../../../middlewares/error');
-const { routeValidator } = require('../../../middlewares/route-validator');
-const { monitoringMiddleware } = require('../../../middlewares/monitoring');
+const { errorMiddleware } = require('@middlewares/error');
+const { routeValidator } = require('@middlewares/route-validator');
+const { monitoringMiddleware } = require('@middlewares/monitoring');
 
 const controller = require('./hello.controller');
 const validator = require('./hello.validator');

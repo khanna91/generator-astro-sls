@@ -1,6 +1,6 @@
 /* eslint-disable arrow-body-style */
 const { monitoringMiddleware, sendMonitoringLogs } = require('./monitoring.middleware');
-const { logger } = require('../../utils/logger');
+const { logger } = require('@utils/logger');
 
 describe('Middleware - monitoringMiddleware', () => {
   let infoSpy;
