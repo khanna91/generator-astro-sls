@@ -99,6 +99,8 @@ module.exports = class extends Generator {
     copyTpl(tPath('jest.json'), dPath('jest.json'), props);
     copyTpl(tPath('jsconfig.json.ejs'), dPath('jsconfig.json'), props);
     copyTpl(tPath('jsconfig.json.ejs'), dPath('jsconfig.json'), props);
+    copyTpl(tPath('webpack.config.ejs'), dPath(urlJoin('webpack.config.js')), props);
+    copyTpl(tPath('_.babelrc.ejs'), dPath(urlJoin('.babelrc')), props);
 
     /**
      * License
