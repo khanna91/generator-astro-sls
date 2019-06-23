@@ -129,7 +129,7 @@ describe('Middleware - error', () => {
   });
 
   it('should convert APIError and send json response', () => {
-    const err = APIError.unauthorized();
+    const err = APIError.withCode('UNKNOWN');
     const mockFn = jest.fn();
     converter().onError({ error: err }, mockFn);
     expect(errorSpy).toHaveBeenCalledTimes(1);
