@@ -11,7 +11,8 @@ expect.extend(toBeType);
 const {
   convertGenericError,
   convertValidationError,
-  errorHandler
+  errorHandler,
+  converter
 } = require('./error.middleware');
 
 describe('Middleware - error', () => {
