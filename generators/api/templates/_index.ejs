@@ -9,6 +9,7 @@ const {
 } = require('middy/middlewares');
 const { errorMiddleware } = require('../../../middlewares/error');
 const { routeValidator } = require('../../../middlewares/route-validator');
+const { monitoringMiddleware } = require('../../../middlewares/monitoring');
 
 const controller = require('./<%= name %>.controller');
 const validator = require('./<%= name %>.validator');
@@ -20,13 +21,15 @@ const validator = require('./<%= name %>.validator');
  * @apiName <%= name %>
  * @apiPermission public
  */
-const handler = middy(controller.<%= name %>).use(errorMiddleware.converter())
+const handler = middy(controller.<%= name %>)
+  .use(errorMiddleware.converter())
   .use(cors())
   .use(httpEventNormalizer())
   .use(httpHeaderNormalizer())
   .use(jsonBodyParser())
   .use(urlEncodeBodyParser({ extended: false }))
   .use(httpSecurityHeaders())
+  .use(monitoringMiddleware())
   .use(routeValidator({ schema: validator.joiSchema }));
 
 module.exports = handler;

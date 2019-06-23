@@ -1,6 +1,7 @@
 const httpStatus = require('http-status');
 const _ = require('lodash');
 const { APIError, generateError } = require('../../utils/APIError');
+const { logger } = require('../../utils/logger');
 
 /**
  * Error handler. Send stacktrace only during development
@@ -15,7 +16,7 @@ const errorHandler = (err) => { // eslint-disable-line
       stack: err.stack
     }
   };
-
+  logger.error('Application Error Stack', { errorStack: err.stack || err.message });
   if (process.env.NODE_ENV !== 'development') {
     delete response.response.stack;
     delete response.input;
