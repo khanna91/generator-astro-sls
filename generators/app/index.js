@@ -97,10 +97,8 @@ module.exports = class extends Generator {
     copyTpl(tPath('_.eslintrc.ejs'), dPath('.eslintrc'), props);
     copyTpl(tPath('_README.md'), dPath('README.md'), props);
     copyTpl(tPath('jest.json'), dPath('jest.json'), props);
+    copyTpl(tPath('.env.example'), dPath('.env.example'), props);
     copyTpl(tPath('jsconfig.json.ejs'), dPath('jsconfig.json'), props);
-    copyTpl(tPath('jsconfig.json.ejs'), dPath('jsconfig.json'), props);
-    copyTpl(tPath('webpack.config.ejs'), dPath(urlJoin('webpack.config.js')), props);
-    copyTpl(tPath('_.babelrc.ejs'), dPath(urlJoin('.babelrc')), props);
 
     /**
      * License
@@ -139,7 +137,7 @@ module.exports = class extends Generator {
     copy(tPath('src/middlewares/monitoring'), dPath(urlJoin(props.src, 'middlewares', 'monitoring')));
     copy(tPath('src/middlewares/route-validator'), dPath(urlJoin(props.src, 'middlewares', 'route-validator')));
 
-
+    copyTpl(tPath('src/config/vars.ejs'), dPath(urlJoin(props.src, 'config', 'vars.js')), props);
     /**
      * services
      */

@@ -1,0 +1,9 @@
+module.exports = {
+  env: process.env.NODE_ENV,
+  serviceName: '<%= name %>',
+  cacheSetting: {
+    cacheHost: process.env.CACHE_HOST,
+    cachePort: process.env.CACHE_PORT,
+    cacheCluster: process.env.CACHE_CLUSTER
+  }
+};

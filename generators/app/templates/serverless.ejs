@@ -5,7 +5,7 @@ custom:
   settings:
     dev:
       STAGE: ${self:custom.stage}
-      NODE_ENV: 'development'
+      NODE_ENV: 'develop'
     stg:
       STAGE: ${self:custom.stage}
       NODE_ENV: 'staging'
@@ -14,7 +14,6 @@ custom:
       NODE_ENV: 'production'
 
 plugins:
-  - serverless-webpack
   - serverless-plugin-tracing
   - serverless-offline
 

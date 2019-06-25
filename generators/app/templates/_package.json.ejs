@@ -46,6 +46,7 @@
   "_moduleAliases": {
     "@app": "src",
     "@api": "src/api",
+    "@config": "src/config",
     "@middlewares": "src/middlewares",
     "@services": "src/services",
     "@utils": "src/utils"
@@ -68,9 +69,6 @@
   "devDependencies": {
     "@types/jest": "^24.0.15",
     "aws-event-mocks": "^0.0.0",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.6",
-    "babel-preset-es2016": "^6.24.1",
     "eslint": "^5.16.0",
     "eslint-config-astro": "^1.0.8",
     "eslint-import-resolver-module-alias": "^0.1.0",
@@ -81,10 +79,7 @@
     "jest-tobetype": "^1.2.3",
     "prettier-eslint": "^9.0.0",
     "serverless": "^1.45.1",
-    "serverless-offline": "^5.3.3",
-    "serverless-webpack": "^5.3.1",
-    "webpack": "^4.35.0",
-    "webpack-node-externals": "^1.7.2"
+    "serverless-offline": "^5.3.3"
   },
   "nyc": {
     "include": "src",
@@ -98,6 +93,7 @@
     "moduleNameMapper": {
       "^@app(.*)$": "<rootDir>/src$1",
       "^@api(.*)$": "<rootDir>/src/api$1",
+      "^@config(.*)$": "<rootDir>/src/config$1",
       "^@middlewares(.*)$": "<rootDir>/src/middlewares$1",
       "^@services(.*)$": "<rootDir>/src/services$1",
       "^@utils(.*)$": "<rootDir>/src/utils$1"
@@ -114,9 +110,11 @@
     "collectCoverageFrom": [
       "src/**/*{js,jsx}",
       "!src/**/index.js",
+      "!src/config/**",
       "!src/**/*.validation.js",
       "!src/**/*.validator.js",
       "!src/utils/APIError/ErrorCode.*",
+      "!src/services/cache/**",
       "!<rootDir>/node_modules/"
     ],
     "coverageReporters": [

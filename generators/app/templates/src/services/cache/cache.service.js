@@ -3,8 +3,7 @@
  *
  */
 const AIM = require('@astro-my/aim-sdk');
-
-const { cacheSetting } = process.env;
+const { cacheSetting } = require('@config/vars');
 
 const { cacheHost, cachePort, cacheCluster } = cacheSetting;
 

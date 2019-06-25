@@ -1,3 +1,4 @@
+require('module-alias/register');
 const awsXRay = require('aws-xray-sdk');
 const awsSdk = awsXRay.captureAWS(require('aws-sdk')); // eslint-disable-line
 
