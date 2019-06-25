@@ -4,9 +4,9 @@
  */
 const { logger } = require('@utils/logger');
 
-const sendMonitoringLogs = async (event) => {
+const sendMonitoringLogs = async (request) => {
   try {
-    const { request, context, response } = event;
+    const { event, context, response } = request;
     let { body } = response;
     try {
       body = JSON.parse(response.body);
@@ -14,7 +14,7 @@ const sendMonitoringLogs = async (event) => {
       logger.error('Cannot parse response body');
     }
     const logData = {
-      request,
+      request: event,
       context,
       response: body,
       statusCode: response.statusCode
