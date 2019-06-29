@@ -11,8 +11,8 @@ const { errorMiddleware } = require('@middlewares/error');
 const { routeValidator } = require('@middlewares/route-validator');
 const { monitoringMiddleware } = require('@middlewares/monitoring');
 
-const controller = require('./<%= name %>.controller');
-const validator = require('./<%= name %>.validator');
+const controller = require('./<%= filename %>.controller');
+const validator = require('./<%= filename %>.validator');
 
 /**
  * @api {<%= method %>} <%= apiversion %>/<%= name %> <%= name %>

@@ -59,10 +59,9 @@ module.exports = class extends Generator {
         dirname = underscored(path.dirname(name)).replace('_', '-');
         // mkdirp.sync(path.join(this.destinationPath(), dirname));
         name = path.basename(name);
-
+        
         // now filename only store the basename
         that.props.filename = underscored(name).replace('_', '-');
-
         // dirname should be full path
         dirname = urlJoin(dirname, that.props.filename);
       }
