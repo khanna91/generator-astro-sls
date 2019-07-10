@@ -8,15 +8,16 @@ describe('Middleware - routeValidator', () => {
   afterEach(() => {});
 
   it('should validate the if no schema or body pass', () => {
-    const result = validate();
-    expect(result).toBeTrue();
+    const result = validate({});
+    expect(result).toBeObject();
   });
 
   it('should validate the schema', () => {
     const result = validate({ name: 'test' }, Joi.object({
       name: Joi.string().required()
     }));
-    expect(result).toBeTrue();
+    expect(result).toBeObject();
+    expect(result).toContainAllKeys(['name']);
   });
 
   it('should invalidate the schema', () => {
