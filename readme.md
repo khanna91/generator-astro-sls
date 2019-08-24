@@ -25,10 +25,10 @@ Choose your project, either service or fullstack
 
 ### Generator CLI
 
-Generate a new API:
+Generate a new Handler:
 
 ```
-yo astro-sls:api
+yo astro-sls:handler
 ```
 
 Generate a new middleware:
