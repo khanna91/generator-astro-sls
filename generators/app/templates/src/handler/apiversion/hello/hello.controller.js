@@ -1,5 +1,5 @@
 const { OK } = require('@utils/helper');
-const { logger } = require('@utils/logger');
+const logger = require('@utils/logger');
 
 exports.hello = async (event) => {
   logger.info('im inside hello controller');

@@ -36,14 +36,14 @@ module.exports = class extends Generator {
       {
         type: 'input',
         name: 'apibase',
-        message: 'Your API base path?',
-        default: that.config.get('apibase') || 'api',
+        message: 'Your Handler base path?',
+        default: that.config.get('apibase') || 'handler',
         validate: value => value !== undefined && value !== ''
       },
       {
         type: 'input',
         name: 'apiversion',
-        message: 'Your API version?',
+        message: 'Your Handler version?',
         default: that.config.get('apiversion') || 'v1',
         validate: value => value !== undefined && value !== ''
       },
@@ -121,7 +121,7 @@ module.exports = class extends Generator {
      * api folder
      */
     mkdirp.sync(path.join(this.destinationPath(), urlJoin(props.src, props.apibase)));
-    copy(tPath(`src/api/apiversion`), dPath(urlJoin(props.apiPath, props.apiversion)));
+    copy(tPath(`src/handler/apiversion`), dPath(urlJoin(props.apiPath, props.apiversion)));
 
     /**
      * utils

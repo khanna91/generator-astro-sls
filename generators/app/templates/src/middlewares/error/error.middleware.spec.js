@@ -3,7 +3,7 @@
 const httpStatus = require('http-status');
 const toBeType = require('jest-tobetype');
 const Joi = require('@hapi/joi');
-const { logger } = require('@utils/logger');
+const logger = require('@utils/logger');
 const { APIError } = require('@utils/APIError');
 
 expect.extend(toBeType);

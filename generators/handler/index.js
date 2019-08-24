@@ -21,20 +21,20 @@ module.exports = class extends Generator {
       {
         type: 'input',
         name: 'name',
-        message: 'What is your API endpoint name?',
+        message: 'What is your handler endpoint name?',
         default: this.config.get('last_endpoint') || 'endpoint',
         validate: value => value !== undefined && value !== ''
       },
       {
         type: 'input',
         name: 'apidesc',
-        message: 'Please give API description for documentation!',
+        message: 'Please give handler description for documentation!',
         default: this.config.get('last_apidesc') || 'description'
       },
       {
         type: 'list',
         name: 'method',
-        message: 'API Method?',
+        message: 'Handler Method?',
         default: this.config.get('last_method') || 'post',
         choices: ['get', 'post', 'put', 'delete']
       }
@@ -59,7 +59,7 @@ module.exports = class extends Generator {
         dirname = underscored(path.dirname(name)).replace('_', '-');
         // mkdirp.sync(path.join(this.destinationPath(), dirname));
         name = path.basename(name);
-        
+
         // now filename only store the basename
         that.props.filename = underscored(name).replace('_', '-');
         // dirname should be full path

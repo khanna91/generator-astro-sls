@@ -2,7 +2,7 @@
  * Monitoring Middleware
  *
  */
-const { logger } = require('@utils/logger');
+const logger = require('@utils/logger');
 
 const sendMonitoringLogs = async (request) => {
   try {
