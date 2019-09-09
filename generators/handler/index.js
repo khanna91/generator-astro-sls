@@ -108,7 +108,7 @@ module.exports = class extends Generator {
     const copyTpl = this.fs.copyTpl.bind(this.fs);
     const tPath = this.templatePath.bind(this);
     const dPath = this.destinationPath.bind(this);
-    const controllerName = `${props.filename}.controller.js`;
+    const controllerName = `${props.filename}.handler.js`;
     const validationName = `${props.filename}.validator.js`;
     const testName = `${props.filename}.spec.js`;
     const apiRootPath = urlJoin(props.apiPath, this.apiversion);
@@ -118,7 +118,7 @@ module.exports = class extends Generator {
      * Controller
      */
     if (!this.fs.exists(dPath(`${apiPath}/${controllerName}`))) {
-      copyTpl(tPath('_controller.ejs'), dPath(`${apiPath}/${controllerName}`), props);
+      copyTpl(tPath('_handler.ejs'), dPath(`${apiPath}/${controllerName}`), props);
     }
 
     /**

@@ -1,9 +1,7 @@
 <% if (handlerType == false || requiresMiddleware == 'false') { %>
-const controller = require('./<%= filename %>.controller');
+const handler = require('./<%= filename %>.handler');
 
-const handler = controller.<%= name %>;
-
-module.exports = handler;
+module.exports = handler.<%= name %>;
 <% } else { %>
 const middy = require('middy');
 const {
@@ -17,10 +15,10 @@ const {
 const { errorMiddleware } = require('@middlewares/error');
 const { routeValidator } = require('@middlewares/route-validator');
 const { monitoringMiddleware } = require('@middlewares/monitoring');
-const controller = require('./<%= filename %>.controller');
+const handler = require('./<%= filename %>.handler');
 const validator = require('./<%= filename %>.validator');
 
-const handler = middy(controller.<%= name %>)
+const handlerWrapper = middy(handler.<%= name %>)
   .use(errorMiddleware.converter())
   .use(cors())
   .use(httpEventNormalizer())
@@ -31,5 +29,5 @@ const handler = middy(controller.<%= name %>)
   .use(monitoringMiddleware())
   .use(routeValidator({ schema: validator.joiSchema }));
 
-module.exports = handler;
+module.exports = handlerWrapper;
 <% } %>

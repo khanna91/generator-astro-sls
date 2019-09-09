@@ -11,10 +11,10 @@ const { errorMiddleware } = require('@middlewares/error');
 const { routeValidator } = require('@middlewares/route-validator');
 const { monitoringMiddleware } = require('@middlewares/monitoring');
 
-const controller = require('./hello.controller');
+const handler = require('./hello.handler');
 const validator = require('./hello.validator');
 
-const handler = middy(controller.hello)
+const handlerWrapper = middy(handler.hello)
   .use(errorMiddleware.converter())
   .use(cors())
   .use(httpEventNormalizer())
@@ -25,4 +25,4 @@ const handler = middy(controller.hello)
   .use(monitoringMiddleware())
   .use(routeValidator({ schema: validator.joiSchema }));
 
-module.exports = handler;
+module.exports = handlerWrapper;

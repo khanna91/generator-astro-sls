@@ -1,6 +1,6 @@
 /* eslint-disable arrow-body-style */
 const httpStatus = require('http-status');
-const controller = require('./hello.controller');
+const handler = require('./hello.handler');
 
 describe('Test hello', () => {
   let event;
@@ -14,7 +14,7 @@ describe('Test hello', () => {
   });
 
   it('should return valid response', async () => {
-    const { statusCode, body } = await controller.hello(event);
+    const { statusCode, body } = await handler.hello(event);
     expect(statusCode).toBe(httpStatus.OK);
     const result = JSON.parse(body);
     expect(result.responseCode).toBe(httpStatus.OK);
