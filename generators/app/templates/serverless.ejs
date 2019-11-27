@@ -20,7 +20,7 @@ plugins:
 provider:
   name: aws
   region: <%= awsregion %>
-  runtime: nodejs10.x
+  runtime: nodejs12.x
   environment: ${self:custom.settings.${self:custom.stage}}
 
   iamRoleStatements:

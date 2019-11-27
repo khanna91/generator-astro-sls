@@ -7,7 +7,7 @@ const logger = require('@utils/logger');
 const sendMonitoringLogs = async (request) => {
   try {
     const { event, context, response } = request;
-    let { body } = response;
+    const { body } = response;
     const logData = {
       request: event,
       context,
