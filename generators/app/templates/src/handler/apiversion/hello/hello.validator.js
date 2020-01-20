@@ -4,6 +4,7 @@ module.exports = {
   name: 'Hello',
   path: '/v1/trace',
   type: 'get',
+  description: 'Sample Hello API',
   joiSchema: {
     headers: Joi.object({}).options({ stripUnknown: true }),
     response: {
