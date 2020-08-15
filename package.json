@@ -22,7 +22,7 @@
     "serverless"
   ],
   "dependencies": {
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.20",
     "mkdirp": "^0.5.1",
     "recast": "^0.18.1",
     "rimraf": "^2.6.3",
