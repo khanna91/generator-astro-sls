@@ -161,9 +161,10 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.installDependencies({
+    this.addDependencies({
       yarn: { force: true },
-      npm: false
+      npm: false,
+      bower: false
     }).then(() => console.log('Everything is ready!'));
   }
 };
