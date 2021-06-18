@@ -2,7 +2,7 @@
 
 const httpStatus = require('http-status');
 const toBeType = require('jest-tobetype');
-const Joi = require('@hapi/joi');
+const Joi = require('joi');
 const logger = require('@utils/logger');
 const { APIError } = require('@utils/APIError');
 
@@ -20,7 +20,7 @@ describe('Middleware - error', () => {
     name: Joi.string().alphanum().min(3).max(30)
       .required()
   });
-  const { error } = Joi.validate({ a: 'a string' }, schema);
+  const { error } = schema.validate({ a: 'a string' });
   let errorSpy;
 
   beforeEach(() => {

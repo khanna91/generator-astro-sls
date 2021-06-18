@@ -1,5 +1,7 @@
 service: <%= name %> # NOTE: update this with your service name
 
+variablesResolutionMode: 20210326
+
 custom:
   stage: ${opt:stage, self:provider.stage}
   settings:
@@ -20,16 +22,19 @@ plugins:
 provider:
   name: aws
   region: <%= awsregion %>
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   environment: ${self:custom.settings.${self:custom.stage}}
+  lambdaHashingVersion: 20201221
 
-  iamRoleStatements:
-    - Effect: "Allow"
-      Action:
-        - "xray:PutTraceSegments"
-        - "xray:PutTelemetryRecords"
-      Resource:
-        - "*"
+  iam:
+    role:
+      statements:
+        - Effect: "Allow"
+          Action:
+            - "xray:PutTraceSegments"
+            - "xray:PutTelemetryRecords"
+          Resource:
+            - "*"
 
 functions:
   hello:

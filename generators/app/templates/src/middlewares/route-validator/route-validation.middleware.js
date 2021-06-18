@@ -1,5 +1,4 @@
 const _ = require('lodash');
-const Joi = require('@hapi/joi');
 
 /**
  * Function to validate the actual data against Joi Schema
@@ -10,11 +9,11 @@ const validate = (values, schema) => {
   if (_.isEmpty(schema)) {
     return values;
   }
-  const validateData = Joi.validate(values, schema);
-  if (validateData.error) {
-    throw validateData.error;
+  const { error, value } = schema.validate(values);
+  if (error) {
+    throw error;
   }
-  return validateData.value;
+  return value;
 };
 
 /**

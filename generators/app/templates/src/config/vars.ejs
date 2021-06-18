@@ -9,9 +9,10 @@ require('dotenv-safe').load({
 module.exports = {
   env: process.env.NODE_ENV,
   serviceName: '<%= name %>',
-  cacheSetting: {
-    cacheHost: process.env.CACHE_HOST,
-    cachePort: process.env.CACHE_PORT,
-    cacheCluster: process.env.CACHE_CLUSTER
+  http: {
+    // Axios configuration to make http call
+    timeout: 20000, // Timeout in ms
+    responseType: 'json',
+    responseEncoding: 'utf8'
   }
 };
