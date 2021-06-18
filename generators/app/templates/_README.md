@@ -3,7 +3,7 @@
 
 ## Requirements
 
- - [Node v10+](https://nodejs.org/en/download/current/) or [Docker](https://www.docker.com/)
+ - [Node v14+](https://nodejs.org/en/download/current/) or [Docker](https://www.docker.com/)
  - [Yarn](https://yarnpkg.com/en/docs/install)
 
 ## Getting Started

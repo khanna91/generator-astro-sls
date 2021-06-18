@@ -1,5 +1,5 @@
 /* eslint-disable arrow-body-style */
-const Joi = require('@hapi/joi');
+const Joi = require('joi');
 const { validate, routeValidator } = require('./route-validation.middleware');
 
 describe('Middleware - routeValidator', () => {
