@@ -1,6 +1,6 @@
 {
   "name": "generator-astro-sls",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Generator to create serverless nodejs application",
   "main": "index.js",
   "author": "Rahul Khanna (khanna.mailme@gmail.com)",
