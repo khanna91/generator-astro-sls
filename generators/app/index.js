@@ -145,19 +145,16 @@ module.exports = class extends Generator {
 
     copyTpl(tPath('_package.json.ejs'), dPath('package.json'), props);
 
+    this.config.set('name', props.name);
+    this.config.set('apibase', props.apibase);
+    this.config.set('apiversion', props.apiversion);
+    this.config.set('version', props.version);
+    this.config.set('description', props.description);
+    this.config.set('author', props.author);
+    this.config.set('src', props.src);
+    this.config.set('client', props.client);
+    this.config.set('kind', props.kind);
     this.config.save();
-
-    this.on('end', () => {
-      this.config.set('name', props.name);
-      this.config.set('apibase', props.apibase);
-      this.config.set('apiversion', props.apiversion);
-      this.config.set('version', props.version);
-      this.config.set('description', props.description);
-      this.config.set('author', props.author);
-      this.config.set('src', props.src);
-      this.config.set('client', props.client);
-      this.config.set('kind', props.kind);
-    });
   }
 
   install() {

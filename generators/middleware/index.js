@@ -35,9 +35,7 @@ module.exports = class extends Generator {
         process.exit();
       }
 
-      this.on('end', () => {
-        this.config.set('last_middleware', originalName);
-      });
+      this.config.set('last_middleware', originalName);
 
       done();
     });

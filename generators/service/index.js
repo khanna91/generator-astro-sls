@@ -29,15 +29,12 @@ module.exports = class extends Generator {
       that.props.service = camelize(that.props.service, true);
       that.props.filename = underscored(that.props.service).replace('_', '-');
       that.props.capitalizedService = capitalize(originalService);
-
       if (!that.projectname || !that.apiversion) {
         console.log('Invalid Serverless project!, exiting');
         process.exit();
       }
 
-      this.on('end', () => {
-        this.config.set('last_service', originalService);
-      });
+      this.config.set('last_service', originalService);
 
       done();
     });

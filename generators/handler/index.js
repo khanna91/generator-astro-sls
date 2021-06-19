@@ -88,15 +88,13 @@ module.exports = class extends Generator {
         process.exit();
       }
 
-      this.on('end', () => {
-        this.config.set('last_endpoint', that.props.endpoint);
-        this.config.set('last_apidesc', that.props.apidesc);
-        this.config.set('last_method', that.props.method);
-        this.config.set('apibase', that.props.apibase);
-        this.config.set('apiversion', that.props.apiversion);
-        this.config.set('last_handlerType', that.props.httpHandlerType);
-        this.config.set('last_handlerrequire', that.props.requiresMiddleware);
-      });
+      this.config.set('last_endpoint', that.props.endpoint);
+      this.config.set('last_apidesc', that.props.apidesc);
+      this.config.set('last_method', that.props.method);
+      this.config.set('apibase', that.props.apibase);
+      this.config.set('apiversion', that.props.apiversion);
+      this.config.set('last_handlerType', that.props.httpHandlerType);
+      this.config.set('last_handlerrequire', that.props.requiresMiddleware);
 
       done();
     });
